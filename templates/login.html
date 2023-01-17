@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+<h1>Login</h1>
+<br>
+<form method="POST">
+    {{ form.csrf_token }}
+    <div class="form-group">
+        {{ form.email.label(class="form-control-label") }}
+        {{ form.email(class="form-control") }}
+    </div>
+    <br>
+    <div class="form-group">
+        {{ form.password.label(class="form-control-label") }}
+        {{ form.password(class="form-control") }}
+    </div>
+    <br>
+    <input type="submit" value="Login">
+</form>
+<br>
+<h5>Don't have an account? <a style="text-decoration: none;" href="{{ url_for('register') }}">Register</a></h5>
+{% endblock %}

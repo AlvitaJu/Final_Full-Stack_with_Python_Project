@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+
+<h1>Register</h1>
+<br>
+<form method="POST">
+    {{ form.csrf_token }}
+    <div class="form-group">
+        {{ form.username.label(class="form-control-label") }}
+        {{ form.username(class="form-control") }}
+    </div>
+    <br>
+    <div class="form-group">
+        {{ form.email.label(class="form-control-label") }}
+        {{ form.email(class="form-control") }}
+    </div>
+    <br>
+    <div class="form-group">
+        {{ form.password1.label(class="form-control-label") }}
+        {{ form.password1(class="form-control") }}
+    </div>
+    <br>
+    <div class="form-group">
+        {{ form.password2.label(class="form-control-label") }}
+        {{ form.password2(class="form-control") }}
+    </div>
+    <br>
+    <div class="form-group">
+        <input type="submit" value="Register">
+    </div>
+</form>
+<br>
+<h5>Or perhaps, just <a style="text-decoration: none;" href="{{ url_for('login') }}">login</a>?</h5>
+{% endblock %}

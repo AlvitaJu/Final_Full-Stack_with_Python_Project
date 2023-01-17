@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Edit Category</h1>
+<br>
+
+<form method="post" action="#" style="">
+     {{ form.csrf_token }}
+    <div class="form-group">
+        {{ form.description.label(class="form-control-label") }}
+        {{ form.description(class="form-control") }}
+    </div>
+    <br>
+    {{ form.submit }}
+</form>
+<br>
+
+{% endblock %}
