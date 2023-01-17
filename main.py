@@ -206,8 +206,7 @@ def delete_entry(entry_id):
         if entry:
             db.session.delete(entry)
             db.session.commit()
-            return redirect('/categories')
-        # abort(404)
+            return redirect(f'/entries/{entry.category_id}')
     return render_template('delete_entry.html')
 
 
@@ -238,14 +237,12 @@ def delete_category(category_id):
             db.session.delete(category)
             db.session.commit()
             return redirect('/categories')
-        # abort(404)
     return render_template('delete_category.html')
 
 
 @app.route('/sign_out')
 @login_required
 def sign_out():
-    flash(f'See you next time, {current_user.username}')
     logout_user()
     return redirect(url_for('index'))
 

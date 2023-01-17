@@ -8,7 +8,7 @@
 
 <div class="box"
              style="padding:10px; border: 2px solid blue; width:250px; height:130px; margin:25px; text-align:center;border-radius: 50px 20px;">
-    <a href="{{ url_for('categories', category_id=post.id)}}" style="text-decoration: none">
+    <a href="{{ url_for('entries', category_id=post.category_id)}}" style="text-decoration: none">
         <h5>Category ID:{{ post.category_id }}</h5>
         <h5>Title:{{ post.title }}</h5>
         <h5> Description:{{ post.description }} </h5>

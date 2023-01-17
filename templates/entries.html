@@ -23,7 +23,7 @@
         <th scope="row">{{ item.id }}</th>
         <th scope="row">{{ item.title }}</th>
         <th scope="row">{{ item.description }}</th>
-        <th scope="row"><img src="{{  url_for('static', filename='foto/' + item.foto) }}" height="15" width="15"></th>
+        <th scope="row"><img src="{{  url_for('static', filename='foto/' + item.foto) }}" height="50" width="50"></th>
         <th scope="row"><a href="{{ url_for('edit_entry', entry_id=item.id) }}" style="text-decoration: none">Edit</a> / <a href="{{ url_for('delete_entry', entry_id=item.id) }}" style="text-decoration: none">Delete</a></th>
     </tr>
     {% endfor %}
