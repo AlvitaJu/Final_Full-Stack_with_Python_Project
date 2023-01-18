@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Delete category</h1>
+<br>
+<form method="POST" action="#">
+
+    <p>Are you sure you want to delete this category? </p>
+    <input type="submit" value="Delete">
+    <a style="text-decoration: none;padding-left:15px;" href='/categories'>Go Back</a>
+</form>
+<br>
+
+{% endblock %}

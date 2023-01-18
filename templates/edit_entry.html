@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Edit entry</h1>
+<br>
+
+<form method="POST" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+    <div class="form-group">
+        {{ form.title.label(class="form-control-label") }}
+        {{ form.title(class="form-control") }}
+    </div>
+    <br>
+    <div class="form-group">
+        {{ form.description.label(class="form-control-label") }}
+        {{ form.description(class="form-control") }}
+    </div>
+    <br>
+    <div class="form-group">
+        {{ form.foto.label(class="form-control-label") }}
+        {{ form.foto(class="form-control") }}
+    </div>
+    <br>
+    {{ form.submit }}
+</form>
+<br>
+
+{% endblock %}
