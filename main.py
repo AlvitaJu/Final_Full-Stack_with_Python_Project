@@ -129,11 +129,10 @@ def categories():
     form = forms.CategoriesForm()
     if form.validate_on_submit():
         new_category = Category(
-            category_id=form.category_id.data, description=form.description.data, user_id=current_user.id
+            category_id=form.category_id.data,
+            description=form.description.data,
+            user_id=current_user.id
         )
-        if not new_category:
-            flash(f' Category ID {form.category_id.data} already exists!', 'danger')
-            return redirect(url_for('categories'))
         flash(f' New category ID: {form.category_id.data}', 'success')
         for entry in form.entries.data:
             added_entry = Entry.query.get(entry.id)
@@ -260,7 +259,10 @@ def search():
     posts = Entry.query
     if form.validate_on_submit():
         entry_searched = form.searched.data
-        posts = posts.filter(Entry.description.like('%' + entry_searched + '%'))
+        if entry_searched == '':
+            flash('What are you searching for?', 'warning')
+            return redirect(url_for('index'))
+        posts = posts.filter(Entry.title.like('%' + entry_searched + '%'))
         posts = posts.order_by(Entry.id).all()
     return render_template('search.html',
                            form=form,

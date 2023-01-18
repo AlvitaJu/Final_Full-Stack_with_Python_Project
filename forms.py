@@ -51,6 +51,12 @@ class CategoriesForm(FlaskForm):
                                     get_pk=lambda obj: str(obj))
     submit = SubmitField('Add')
 
+    def validate_category_id(self, category_id):
+        category = main.Category.query.filter_by(category_id=category_id.data).first()
+        if category:
+            raise ValidationError('Category ID already exists!')
+
+
 
 class EditEntriesForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
@@ -65,5 +71,5 @@ class EditCategoriesForm(FlaskForm):
 
 
 class SearchForm(FlaskForm):
-    searched = StringField('Searched', validators=[DataRequired()])
+    searched = StringField('Searched')
     submit = SubmitField('Search!')
